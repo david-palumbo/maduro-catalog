@@ -23,3 +23,9 @@ Ubuntu 18.04 x64
     sudo apt-get update
     sudo apt-get install dotnet-sdk-2.2
     ```
+
+#### Build
+
+Navigate to the **/src** directory and run:
+
+> dotnet build
