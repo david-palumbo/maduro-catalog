@@ -13,5 +13,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: 'src/Maduro.Catalog.sln'
   displayName: 'dotnet build $(buildConfiguration)'
