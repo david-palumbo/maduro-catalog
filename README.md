@@ -35,3 +35,9 @@ Ubuntu 18.04 x64
 Navigate to the **/src** directory and run:
 
 > dotnet build
+
+#### Run Tests
+
+Navigate to the **/src** directory and run:
+
+> dotnet test

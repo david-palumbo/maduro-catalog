@@ -1,4 +1,5 @@
 
+using System;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,14 +10,16 @@ namespace Maduro.Catalog.Api.Controllers
     /// </summary>
     public class CigarsController
     {
-
         /// <summary>
         /// Creates a new instance of the <see cref="CigarsController"/> class.
         /// </summary>
-        /// <param name="mediator"></param>
+        /// <param name="mediator">
+        /// Required type for mediating commands and queries.
+        /// </param>
         public CigarsController(IMediator mediator)
         {
-            
+            _mediator = mediator 
+                ?? throw new ArgumentNullException(nameof(mediator));
         }
 
         /// <summary>
@@ -29,5 +32,9 @@ namespace Maduro.Catalog.Api.Controllers
         {
             return string.Empty;
         }
+        
+        
+        
+        private readonly IMediator _mediator;
     }
 }
