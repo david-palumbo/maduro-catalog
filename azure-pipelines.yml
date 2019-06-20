@@ -1,4 +1,5 @@
 # ASP.NET Core
+
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
@@ -17,4 +18,9 @@ steps:
   inputs:
     command: 'build'
     projects: 'src/Maduro.Catalog.sln'
-  displayName: 'dotnet build $(buildConfiguration)'
+  displayName: 'Build Solution'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: 'src/Maduro/Catalog.sln'
+  displayName: 'Run Tests'
