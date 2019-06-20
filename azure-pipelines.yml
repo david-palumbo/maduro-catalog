@@ -22,5 +22,5 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: 'src/Maduro/Catalog.sln'
+    projects: 'src/Maduro.Catalog.sln'
   displayName: 'Run Tests'
