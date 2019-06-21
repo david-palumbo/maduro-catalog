@@ -23,4 +23,13 @@ steps:
   inputs:
     command: 'test'
     projects: 'src/Maduro.Catalog.sln'
-  displayName: 'Run Tests'
+  displayName: '.NET Core Tests'
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*Tests*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
+  displayName: "Visual Studio Tests"
