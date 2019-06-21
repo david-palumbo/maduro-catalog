@@ -1,4 +1,4 @@
-# ASP.NET Core
+ ASP.NET Core
 
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
@@ -19,11 +19,11 @@ steps:
     command: 'build'
     projects: 'src/Maduro.Catalog.sln'
   displayName: 'Build Solution'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    projects: 'src/Maduro.Catalog.sln'
-  displayName: '.NET Core Tests'
+#- task: DotNetCoreCLI@2
+#  inputs:
+#    command: 'test'
+#    projects: 'src/Maduro.Catalog.sln'
+#  displayName: '.NET Core Tests'
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
