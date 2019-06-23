@@ -19,18 +19,33 @@ steps:
     command: 'build'
     projects: 'src/Maduro.Catalog.sln'
   displayName: 'Build Solution'
-#- task: DotNetCoreCLI@2
-#  inputs:
-#    command: 'test'
-#    projects: 'src/Maduro.Catalog.sln'
-#  displayName: '.NET Core Tests'
-- task: VSTest@2
+
+- task: DotNetCoreCLI@2
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\bin\$(BuildConfiguration)\**\*Tests*.dll
-      !**\obj\**
-      !**\xunit.runner.visualstudio.testadapter.dll
-      !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    codeCoverageEnabled: true
-  displayName: "Visual Studio Tests"
+    command: 'test'
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+    projects: 'src/Maduro.Catalog.sln'
+  displayName: '.NET Core Tests'
+
+- script: |
+    dotnet tool install -g dotnet-reportgenerator-globaltool
+    reportgenerator -reports:$(Build.SourcesDirectory)/tests/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines;Cobertura
+  displayName: 'Generate Code Coverage Report'
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage'
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
+    reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
+
+# - task: VSTest@2
+#   inputs:
+#     testSelector: 'testAssemblies'
+#     testAssemblyVer2: '**\bin\$(BuildConfiguration)\**\*Tests*.dll
+#       !**\obj\**
+#       !**\xunit.runner.visualstudio.testadapter.dll
+#       !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll'
+#     searchFolder: '$(System.DefaultWorkingDirectory)'
+#     codeCoverageEnabled: true
+#   displayName: "Visual Studio Tests"
