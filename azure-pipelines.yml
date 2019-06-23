@@ -29,14 +29,14 @@ steps:
 
 - script: |
     dotnet tool install -g dotnet-reportgenerator-globaltool
-    reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(CoverageOutput) -reporttypes:HtmlInline_AzurePipelines;Cobertura
+    reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(CoverageOutput) -reporttypes:HtmlInline_AzurePipelines;Cobertura -assembliesFilter:-xunit*.*
   displayName: 'Generate Code Coverage Report'
 
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: Cobertura
     summaryFileLocation: '$(CoverageOutput)/Cobertura.xml'
-    reportDirectory: '$$(CoverageOutput)e'
+    reportDirectory: '$(CoverageOutput)'
   displayName: 'Publish Code Coverage Report'
 
 - task: PublishBuildArtifacts@1
@@ -44,14 +44,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Artifacts'
     publishLocation: 'Container'
-
-# - task: VSTest@2
-#   inputs:
-#     testSelector: 'testAssemblies'
-#     testAssemblyVer2: '**\bin\$(BuildConfiguration)\**\*Tests*.dll
-#       !**\obj\**
-#       !**\xunit.runner.visualstudio.testadapter.dll
-#       !**\xunit.runner.visualstudio.dotnetcore.testadapter.dll'
-#     searchFolder: '$(System.DefaultWorkingDirectory)'
-#     codeCoverageEnabled: true
-#   displayName: "Visual Studio Tests"
