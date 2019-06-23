@@ -1,5 +1,6 @@
 
 using System;
+using Maduro.Catalog.Application.Cigars.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,12 +29,22 @@ namespace Maduro.Catalog.Api.Controllers
         /// <param name="id">
         /// The unique identifier of the cigar to get.
         /// </param>
+        [HttpGet]
         public ActionResult<string> Get(int id)
         {
             return string.Empty;
         }
-        
-        
+
+        /// <summary>
+        /// Adds a new cigar.
+        /// </summary>
+        /// <param name="command">
+        /// Required command containing the data needed to create a new cigar.
+        /// </param>
+        public ActionResult<Guid> Post(AddCigarCommand command)
+        {
+            return Guid.NewGuid();
+        }
         
         private readonly IMediator _mediator;
     }

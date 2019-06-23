@@ -1,3 +1,5 @@
+using System;
+
 using MediatR;
 
 namespace Maduro.Catalog.Application.Cigars.Commands
@@ -5,7 +7,7 @@ namespace Maduro.Catalog.Application.Cigars.Commands
     /// <summary>
     /// Contains the data required to add a new cigar.
     /// </summary>
-    public class AddCigarCommand : IRequest
+    public class AddCigarCommand : IRequest<Guid>
     {
         /// <summary>
         /// Gets or sets the brand of cigar.
