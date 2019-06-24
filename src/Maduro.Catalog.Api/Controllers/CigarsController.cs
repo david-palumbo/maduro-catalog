@@ -1,5 +1,6 @@
 
 using System;
+using System.Threading.Tasks;
 using Maduro.Catalog.Application.Cigars.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ namespace Maduro.Catalog.Api.Controllers
     /// <summary>
     /// API for cigars.
     /// </summary>
-    public class CigarsController
+    public class CigarsController : ControllerBase
     {
         /// <summary>
         /// Creates a new instance of the <see cref="CigarsController"/> class.
@@ -41,9 +42,11 @@ namespace Maduro.Catalog.Api.Controllers
         /// <param name="command">
         /// Required command containing the data needed to create a new cigar.
         /// </param>
-        public ActionResult<Guid> Post(AddCigarCommand command)
+        public async Task<ActionResult<Guid>> Post(AddCigarCommand command)
         {
-            return Guid.NewGuid();
+            Guid commandResult = await _mediator.Send(command);
+
+            return CreatedAtAction(nameof(Get), commandResult);
         }
         
         private readonly IMediator _mediator;
