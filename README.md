@@ -41,3 +41,12 @@ Navigate to the **/src** directory and run:
 Navigate to the **/src** directory and run:
 
 > dotnet test
+
+## Code Coverage
+
+Install Report Generator
+
+> dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.2.2
+
+Generate the code coverage report by executing the **generate-test-report.bat** file
+in the **/tasks** folder.
