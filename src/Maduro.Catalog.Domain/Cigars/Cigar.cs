@@ -1,4 +1,5 @@
 using System;
+using Maduro.Catalog.Domain.Cigars.State;
 
 namespace Maduro.Catalog.Domain.Cigars
 {
@@ -10,7 +11,10 @@ namespace Maduro.Catalog.Domain.Cigars
         /// <summary>
         /// Creates a new instance of the <see cref="Cigar"/> class.
         /// </summary>
-        private Cigar()
+        /// <param name="state">
+        /// Require initial state of the cigar.
+        /// </param>
+        private Cigar(CigarState state)
         {
         }
         
@@ -24,7 +28,7 @@ namespace Maduro.Catalog.Domain.Cigars
         /// </summary>
         public static Cigar New()
         {
-            return new Cigar();
+            return new Cigar(new CigarState());
         }
     }
 }
