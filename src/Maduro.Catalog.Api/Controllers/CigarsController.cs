@@ -1,6 +1,7 @@
 
 using System;
 using System.Threading.Tasks;
+
 using Maduro.Catalog.Application.Cigars.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
