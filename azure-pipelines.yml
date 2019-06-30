@@ -13,6 +13,7 @@ pool:
 variables:
   buildConfiguration: 'Debug'
 
+steps:
 - task: DotNetCoreInstaller@0
   displayName: 'Install .NET Core SDK 2.2.300'
   name: install_dotnetcore_sdk
@@ -21,7 +22,6 @@ variables:
     packageType: 'sdk'
     version: '2.2.300'
 
-steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
