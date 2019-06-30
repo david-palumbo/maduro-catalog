@@ -1,3 +1,8 @@
+using System;
+
+using Xunit;
+
+using Maduro.Catalog.Domain.Cigars;
 
 namespace Maduro.Catalog.Domain.Tests.Cigars.CigarTests
 {
@@ -6,9 +11,15 @@ namespace Maduro.Catalog.Domain.Tests.Cigars.CigarTests
     /// </summary>
     public class NewTest
     {
+        /// <summary>
+        /// Tests that the newly created cigar has the expected state.
+        /// </summary>
+        [Fact]
         public void ShouldHaveExpectedState()
         {
-            
+            Cigar cigar = Cigar.New();
+
+            Assert.NotEqual(Guid.Empty, cigar.Id);
         }
     }
 }

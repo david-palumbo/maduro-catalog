@@ -11,5 +11,7 @@ namespace Maduro.Catalog.Domain.Cigars.State
         /// Gets or sets the unique identifier for the cigar.
         /// </summary>
         public Guid Id { get; set; }
+
+        
     }
 }

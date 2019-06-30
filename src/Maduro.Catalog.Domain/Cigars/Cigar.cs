@@ -11,24 +11,29 @@ namespace Maduro.Catalog.Domain.Cigars
         /// <summary>
         /// Creates a new instance of the <see cref="Cigar"/> class.
         /// </summary>
-        /// <param name="state">
-        /// Require initial state of the cigar.
-        /// </param>
-        private Cigar(CigarState state)
+        private Cigar()
         {
         }
         
         /// <summary>
         /// Gets the unique identifier for the cigar.
         /// </summary>
-        public Guid Id { get; }
+        public Guid Id => state.Id;
 
         /// <summary>
         /// Creates a new cigar.
         /// </summary>
         public static Cigar New()
         {
-            return new Cigar(new CigarState());
+            return new Cigar()
+            {
+                state = new CigarState()
+                {
+                    Id = Guid.NewGuid()
+                }
+            };
         }
+
+        private CigarState state;
     }
 }
