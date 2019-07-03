@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Domain", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Domain.Tests", "Maduro.Catalog.Domain.Tests\Maduro.Catalog.Domain.Tests.csproj", "{C6ED5BEE-834E-4D41-B345-559D52A208AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Application.Tests", "Maduro.Catalog.Application.Tests\Maduro.Catalog.Application.Tests.csproj", "{AAFBBE01-B4C3-4F80-A99E-F444801BE453}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C6ED5BEE-834E-4D41-B345-559D52A208AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6ED5BEE-834E-4D41-B345-559D52A208AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6ED5BEE-834E-4D41-B345-559D52A208AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAFBBE01-B4C3-4F80-A99E-F444801BE453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAFBBE01-B4C3-4F80-A99E-F444801BE453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAFBBE01-B4C3-4F80-A99E-F444801BE453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAFBBE01-B4C3-4F80-A99E-F444801BE453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

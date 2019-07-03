@@ -8,4 +8,8 @@
     <PackageReference Include="MediatR" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Maduro.Catalog.Domain\Maduro.Catalog.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
