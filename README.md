@@ -7,6 +7,8 @@ Cigar catalog. Part of the [maduro](https://github.com/david-palumbo/maduro) pro
 
 [![Build Status](https://dev.azure.com/david-palumbo/maduro/_apis/build/status/david-palumbo.maduro-catalog?branchName=master)](https://dev.azure.com/david-palumbo/maduro/_build/latest?definitionId=1&branchName=master)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=david-palumbo_maduro-catalog&metric=alert_status)](https://sonarcloud.io/dashboard?id=david-palumbo_maduro-catalog)
+
 ## Getting Started
 
 ### Linux
