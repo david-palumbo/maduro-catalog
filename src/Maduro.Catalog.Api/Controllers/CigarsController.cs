@@ -1,16 +1,18 @@
-
 using System;
 using System.Threading.Tasks;
 
-using Maduro.Catalog.Application.Cigars.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+
+using Maduro.Catalog.Application.Cigars.Commands;
 
 namespace Maduro.Catalog.Api.Controllers
 {
     /// <summary>
     /// API for cigars.
     /// </summary>
+    [Route("api/[controller]")]
+    [ApiController]
     public class CigarsController : ControllerBase
     {
         /// <summary>
@@ -43,6 +45,7 @@ namespace Maduro.Catalog.Api.Controllers
         /// <param name="command">
         /// Required command containing the data needed to create a new cigar.
         /// </param>
+        [HttpPost]
         public async Task<ActionResult<Guid>> Post(AddCigarCommand command)
         {
             Guid commandResult = await _mediator.Send(command);
