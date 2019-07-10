@@ -62,3 +62,16 @@ Ubuntu 18.04 x64
    ```bash
    sudo apt-get install docker-ce docker-ce-cli containerd.io
    ```
+
+### Manage Docker as a non-root user
+
+[Reference](https://docs.docker.com/install/linux/linux-postinstall/)
+
+1. Create the **docker** group
+   ```bash
+   sudo groupadd docker
+   ```
+1. Add your user to the **docker** group
+   ```bash
+   sudo usermod -aG docker $USER
+   ```
