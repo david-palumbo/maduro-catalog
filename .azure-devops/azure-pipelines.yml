@@ -63,6 +63,12 @@ steps:
     zipAfterPublish: false
   displayName: "Publish API"
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/.azure-devops'
+    Contents: 'Dockerfile'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
