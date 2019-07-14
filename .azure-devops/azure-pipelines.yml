@@ -84,5 +84,8 @@ steps:
 
 - task: Docker@2
   inputs:
-    command: 'build'
+    containerRegistry: 'Docker Hub'
+    repository: 'maduro-catalog'
+    command: 'buildAndPush'
     Dockerfile: '$(Build.ArtifactStagingDirectory)/Dockerfile'
+  displayName: "Push Docker Image"
