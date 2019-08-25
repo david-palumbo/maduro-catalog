@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using Maduro.Catalog.Api.Middleware;
+using Maduro.Catalog.Api.Middleware.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace Maduro.Catalog.Api
 {
@@ -20,9 +22,20 @@ namespace Maduro.Catalog.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services
+                .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                    {
+                        AzureActiveDirectoryAuthenticationSettings authenticationSettings 
+                            = new AzureActiveDirectoryAuthenticationSettings();
+                        Configuration.Bind("Authentication:AzureActiveDirectory", authenticationSettings);
+                        options.Audience = authenticationSettings.ClientId.ToString();
+                        options.Authority = $"https://login.microsoftonline.com/{authenticationSettings.TenantId}/";
+                        options.TokenValidationParameters.ValidIssuer = options.Authority + "v2.0";
+                    }
+                );
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -30,7 +43,6 @@ namespace Maduro.Catalog.Api
             services.AddOpenApi();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -43,9 +55,9 @@ namespace Maduro.Catalog.Api
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
-            
             app.UseOpenApi();
         }
     }

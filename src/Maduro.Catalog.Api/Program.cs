@@ -21,6 +21,11 @@ namespace Maduro.Catalog.Api
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, configurationBuilder) =>
+                {
+                    configurationBuilder.SetBasePath(Directory.GetCurrentDirectory());
+                    configurationBuilder.AddJsonFile("appsettings.local.json", true, true);
+                })
                 .UseStartup<Startup>();
     }
 }
