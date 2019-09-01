@@ -34,6 +34,7 @@ namespace Maduro.Catalog.Api.Controllers
         /// The unique identifier of the cigar to get.
         /// </param>
         [HttpGet]
+        [Route("{id}")]
         public ActionResult<string> Get(int id)
         {
             return string.Empty;
