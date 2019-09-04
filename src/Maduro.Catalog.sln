@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Api", "Maduro.Catalog.Api\Maduro.Catalog.Api.csproj", "{0557E4CC-4183-45B5-AD50-D106D4FC3B88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maduro.Catalog.Api", "Maduro.Catalog.Api\Maduro.Catalog.Api.csproj", "{0557E4CC-4183-45B5-AD50-D106D4FC3B88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Application", "Maduro.Catalog.Application\Maduro.Catalog.Application.csproj", "{6DDB8F95-E72D-40CB-BD51-BBF9920A6146}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maduro.Catalog.Application", "Maduro.Catalog.Application\Maduro.Catalog.Application.csproj", "{6DDB8F95-E72D-40CB-BD51-BBF9920A6146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Api.Tests", "Maduro.Catalog.Api.Tests\Maduro.Catalog.Api.Tests.csproj", "{C071C98A-8DD4-4E29-A9BF-3ECBBCA43053}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maduro.Catalog.Api.Tests", "Maduro.Catalog.Api.Tests\Maduro.Catalog.Api.Tests.csproj", "{C071C98A-8DD4-4E29-A9BF-3ECBBCA43053}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Domain", "Maduro.Catalog.Domain\Maduro.Catalog.Domain.csproj", "{CE74FE2D-D691-44D5-B08D-F678D6790697}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maduro.Catalog.Domain", "Maduro.Catalog.Domain\Maduro.Catalog.Domain.csproj", "{CE74FE2D-D691-44D5-B08D-F678D6790697}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Domain.Tests", "Maduro.Catalog.Domain.Tests\Maduro.Catalog.Domain.Tests.csproj", "{C6ED5BEE-834E-4D41-B345-559D52A208AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maduro.Catalog.Domain.Tests", "Maduro.Catalog.Domain.Tests\Maduro.Catalog.Domain.Tests.csproj", "{C6ED5BEE-834E-4D41-B345-559D52A208AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Application.Tests", "Maduro.Catalog.Application.Tests\Maduro.Catalog.Application.Tests.csproj", "{AAFBBE01-B4C3-4F80-A99E-F444801BE453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maduro.Catalog.Application.Tests", "Maduro.Catalog.Application.Tests\Maduro.Catalog.Application.Tests.csproj", "{AAFBBE01-B4C3-4F80-A99E-F444801BE453}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Infrastructure.SqlServer", "Maduro.Catalog.Infrastructure.SqlServer\Maduro.Catalog.Infrastructure.SqlServer.csproj", "{EE12C5EA-DCCC-499D-BE8B-17DE7B2FDD3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{AAFBBE01-B4C3-4F80-A99E-F444801BE453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAFBBE01-B4C3-4F80-A99E-F444801BE453}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAFBBE01-B4C3-4F80-A99E-F444801BE453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE12C5EA-DCCC-499D-BE8B-17DE7B2FDD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE12C5EA-DCCC-499D-BE8B-17DE7B2FDD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE12C5EA-DCCC-499D-BE8B-17DE7B2FDD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE12C5EA-DCCC-499D-BE8B-17DE7B2FDD3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

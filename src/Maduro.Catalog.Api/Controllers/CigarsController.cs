@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using Maduro.Catalog.Application.Cigars.Commands;
@@ -13,6 +14,7 @@ namespace Maduro.Catalog.Api.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CigarsController : ControllerBase
     {
         /// <summary>

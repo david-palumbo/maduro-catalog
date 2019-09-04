@@ -11,6 +11,8 @@ using Maduro.Catalog.Api.Middleware;
 using Maduro.Catalog.Api.Middleware.Authentication;
 using Maduro.Catalog.Application.Cigars.Commands;
 
+[assembly: ApiConventionType(typeof(DefaultApiConventions))]
+
 namespace Maduro.Catalog.Api
 {
     /// <summary>
