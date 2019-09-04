@@ -1,0 +1,5 @@
+﻿CREATE TABLE [Catalog].[Cigars]
+(
+    [Id] UNIQUEIDENTIFIER NOT NULL, 
+    CONSTRAINT [PK_Cigars] PRIMARY KEY NONCLUSTERED ([Id])
+)
