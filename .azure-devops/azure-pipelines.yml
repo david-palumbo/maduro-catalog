@@ -33,6 +33,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
+    arguments: '--configuration $(BuildConfiguration)'
     projects: 'src/Maduro.Catalog.sln'
   displayName: 'Build Solution'
 
