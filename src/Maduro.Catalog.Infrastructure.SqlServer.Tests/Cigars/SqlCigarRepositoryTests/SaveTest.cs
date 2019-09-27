@@ -12,8 +12,17 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Tests.Cigars.SqlCigarRepositor
     /// <summary>
     /// Unit tests for the Save method of the <see cref="SqlCigarRepository"/> class.
     /// </summary>
+    [Collection("SQL Server Test")]
     public class SaveTest : SqlCigarRepositoryTest
     {
+        /// <summary>
+        /// Creates a new instance of the <see cref="SaveTest"/> class.
+        /// </summary>
+        public SaveTest(SqlServerSettings settings)
+        {
+
+        }
+
         /// <summary>
         /// Tests that passing a null cigar argument will result
         /// in an <see cref="ArgumentNullException" /> being thrown.

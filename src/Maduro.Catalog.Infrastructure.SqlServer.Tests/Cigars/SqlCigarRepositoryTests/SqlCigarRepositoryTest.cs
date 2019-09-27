@@ -7,6 +7,7 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Tests.Cigars.SqlCigarRepositor
     /// </summary>
     public abstract class SqlCigarRepositoryTest
     {
+        
         /// <summary>
         /// Creates a new instance of the <see cref="SqlCigarRepository"/> configured
         /// for testing.

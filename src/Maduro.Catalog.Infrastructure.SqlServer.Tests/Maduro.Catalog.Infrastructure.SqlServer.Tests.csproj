@@ -20,4 +20,10 @@
     <ProjectReference Include="..\Maduro.Catalog.Infrastructure.SqlServer\Maduro.Catalog.Infrastructure.SqlServer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="settings.local.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

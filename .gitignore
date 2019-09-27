@@ -329,3 +329,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /src/Maduro.Catalog.Api/appsettings.local.json
+/src/Maduro.Catalog.Infrastructure.SqlServer.Tests/settings.local.json
