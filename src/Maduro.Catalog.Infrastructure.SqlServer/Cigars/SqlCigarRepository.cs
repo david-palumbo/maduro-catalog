@@ -13,7 +13,10 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Cigars
         /// <summary>
         /// Creates a new instance of the <see cref="SqlCigarRepository"/> class.
         /// </summary>
-        public SqlCigarRepository()
+        /// <param name="settings">
+        /// Required settings for integrating with SQL Server.
+        /// </param>
+        public SqlCigarRepository(SqlServerSettings settings)
         {
 
         }
