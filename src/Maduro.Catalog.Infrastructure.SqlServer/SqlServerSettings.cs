@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents the settings for working with SQL Server.
     /// </summary>
-    internal class SqlServerSettings
+    public class SqlServerSettings
     {
         /// <summary>
 		/// Gets or sets the information required to connect to a SQL Server database.

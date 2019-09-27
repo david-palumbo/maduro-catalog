@@ -1,17 +1,18 @@
 ﻿using System.IO;
+
 using Microsoft.Extensions.Configuration;
 
 namespace Maduro.Catalog.Infrastructure.SqlServer.Tests
 {
     /// <summary>
-    /// Contains the settings for integrating with SQL Server.
+    /// Represents the current test execution environment.
     /// </summary>
-    public class SqlServerSettings
+    public class TestEnvironment
     {
         /// <summary>
-        /// Creates a new instance of the <see cref="SqlServerSettings"/> class.
+        /// Creates a new instance of the <see cref="TestEnvironment"/> class.
         /// </summary>
-        public SqlServerSettings()
+        public TestEnvironment()
         {
             const string localSettingsFile = "settings.local.json";
 
@@ -22,12 +23,15 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Tests
                 .AddJsonFile(localSettingsFile, true, true)
                 .Build();
 
-            ConnectionString = configuration["ConnectionString"];
+            SqlServerSettings = new SqlServerSettings()
+            {
+                ConnectionString = configuration["ConnectionString"]
+            };
         }
 
         /// <summary>
-		/// Gets or sets information for connecting to the SQL Server database.
-		/// </summary>
-		public string ConnectionString { get; }
+        /// Gets the setting for integrating with SQL Server.
+        /// </summary>
+        public SqlServerSettings SqlServerSettings { get; }
     }
 }
