@@ -64,10 +64,13 @@
     <Folder Include="Scripts" />
     <Folder Include="Schema\Catalog" />
     <Folder Include="Schema\Catalog\Tables" />
+    <Folder Include="Schema\Catalog\Programmability" />
+    <Folder Include="Schema\Catalog\Programmability\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema\Catalog\Tables\Cigars.sql" />
     <Build Include="Schema\Catalog\Catalog.sql" />
+    <Build Include="Schema\Catalog\Programmability\Stored Procedures\Cigars_Save.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug.publish.xml" />

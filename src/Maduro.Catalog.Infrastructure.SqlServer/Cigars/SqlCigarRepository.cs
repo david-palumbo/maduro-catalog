@@ -10,6 +10,8 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Cigars
     /// </summary>
     public class SqlCigarRepository : ICigarRepository
     {
+        private readonly SqlServerSettings _settings;
+
         /// <summary>
         /// Creates a new instance of the <see cref="SqlCigarRepository"/> class.
         /// </summary>
@@ -18,7 +20,7 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Cigars
         /// </param>
         public SqlCigarRepository(SqlServerSettings settings)
         {
-
+            _settings = settings;
         }
 
         /// <inheritdoc />
