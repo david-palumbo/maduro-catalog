@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+            <Title>Generates an async test method for asserting that the expected ArgumentNullException is thrown.</Title>
+            <Author>Maduro Project</Author>
+            <Description>
+            </Description>
+            <HelpUrl>
+            </HelpUrl>
+            <Shortcut>m_anta</Shortcut>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>Argument</ID>
+                    <ToolTip>The argument to test for null.</ToolTip>
+                    <Default>argumentName</Default>
+                </Literal>
+                <Literal>
+                    <ID>TestArgumentToken</ID>
+                    <ToolTip>The name of the argument to be placed in the test name.</ToolTip>
+                    <Default>Argument</Default>
+                </Literal>
+            </Declarations>
+            <Code Language="csharp">
+                <![CDATA[/// <summary>
+        /// Tests that passing a null $Argument$ argument will result
+        /// in an <see cref="ArgumentNullException" /> being thrown.
+        /// </summary>
+        [Fact]
+        [ExcludeFromCodeCoverage]
+        public async Task Null$TestArgumentToken$ShouldThrowException()
+        {
+            ArgumentNullException exception = await Assert.ThrowsAsync<ArgumentNullException>(
+                () => $end$);
+            Assert.Equal("$Argument$", exception.ParamName);
+        }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
