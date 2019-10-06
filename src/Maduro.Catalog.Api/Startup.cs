@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Maduro.Catalog.Api.Middleware;
 using Maduro.Catalog.Api.Middleware.Authentication;
 using Maduro.Catalog.Application.Cigars.Commands;
+using Microsoft.Extensions.Hosting;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 
@@ -51,7 +52,7 @@ namespace Maduro.Catalog.Api
             services.AddAzureActiveDirectoryAuthentication(authenticationSettings);
             services
                 .AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services
                 .AddMediatR(typeof(AddCigarCommand).Assembly);
@@ -69,7 +70,7 @@ namespace Maduro.Catalog.Api
         /// <param name="env">
         /// Required hosting environment.
         /// </param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -80,9 +81,12 @@ namespace Maduro.Catalog.Api
                 app.UseHsts();
             }
 
+            app.UseRouting();
             app.UseAuthentication();
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+            });
             app.UseOpenApi();
         }
     }
