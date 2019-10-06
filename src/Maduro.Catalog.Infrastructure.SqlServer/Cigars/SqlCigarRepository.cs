@@ -32,6 +32,11 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Cigars
         /// <inheritdoc />
         public Task Save(Cigar cigar)
         {
+            if (cigar == null)
+            {
+                throw new ArgumentNullException(nameof(cigar));
+            }
+
             throw new System.NotImplementedException();
         }
     }
