@@ -30,7 +30,9 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Tests.Cigars.SqlCigarRepositor
         /// <returns></returns>
         protected SqlCigarRepository CreateRepository()
         {
-            return new SqlCigarRepository(_testEnvironment.SqlServerSettings);
+            var client = new SqlServerClient(_testEnvironment.SqlServerSettings);
+
+            return new SqlCigarRepository(client, new JsonSerializer());
         }
     }
 }

@@ -71,6 +71,7 @@
     <Build Include="Schema\Catalog\Tables\Cigars.sql" />
     <Build Include="Schema\Catalog\Catalog.sql" />
     <Build Include="Schema\Catalog\Programmability\Stored Procedures\Cigars_Save.sql" />
+    <Build Include="Schema\Catalog\Programmability\Stored Procedures\Cigars_GetSingle.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug.publish.xml" />

@@ -48,7 +48,9 @@ namespace Maduro.Catalog.Api
         {
             AzureActiveDirectoryAuthenticationSettings authenticationSettings
                 = new AzureActiveDirectoryAuthenticationSettings();
+
             Configuration.Bind("Authentication:AzureActiveDirectory", authenticationSettings);
+
             services.AddAzureActiveDirectoryAuthentication(authenticationSettings);
             services
                 .AddMvc()
