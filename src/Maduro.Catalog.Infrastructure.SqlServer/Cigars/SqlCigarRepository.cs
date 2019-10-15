@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Data;
 using System.Threading.Tasks;
+
 using Dapper;
+
 using Maduro.Catalog.Domain.Cigars;
+using Maduro.Catalog.Domain.Cigars.State;
 
 namespace Maduro.Catalog.Infrastructure.SqlServer.Cigars
 {
@@ -37,14 +40,22 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Cigars
 
             parameters.Add("@Id", id, DbType.Guid, ParameterDirection.Input);
 
-            var model = await _client.ExecuteInManagedConnectionAsync(connection => 
-                connection.QuerySingleOrDefaultAsync<object>(
+            EntityState entityState = await _client.ExecuteInManagedConnectionAsync(connection => 
+                connection.QuerySingleOrDefaultAsync<EntityState>(
                     "[Catalog].[Cigars_GetSingle]",
                     parameters,
                     commandType: CommandType.StoredProcedure)
                 );
 
-            throw new NotImplementedException();
+            if (entityState == null)
+            {
+                return null;
+            }
+
+            CigarState cigarState
+                = _serializer.Deserialize<CigarState>(entityState.SerializedContent);
+
+            return Cigar.Load(cigarState);
         }
 
         /// <inheritdoc />
@@ -55,7 +66,20 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Cigars
                 throw new ArgumentNullException(nameof(cigar));
             }
 
-            throw new NotImplementedException();
+            string data = _serializer.Serialize(cigar);
+
+            var parameters = new
+            {
+                cigar.Id,
+                Data = data
+            };
+
+            return _client.ExecuteInManagedConnectionAsync(connection =>
+                connection.ExecuteAsync(
+                    "[Catalog].[Cigars_Save]", 
+                    parameters, 
+                    commandType: CommandType.StoredProcedure)
+                );
         }
     }
 }

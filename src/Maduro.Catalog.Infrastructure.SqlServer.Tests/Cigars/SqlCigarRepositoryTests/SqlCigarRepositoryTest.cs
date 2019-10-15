@@ -32,7 +32,7 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Tests.Cigars.SqlCigarRepositor
         {
             var client = new SqlServerClient(_testEnvironment.SqlServerSettings);
 
-            return new SqlCigarRepository(client, new JsonSerializer());
+            return new SqlCigarRepository(client, new JsonEntitySerializer());
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Tests.Cigars.SqlCigarRepositor
         public void NullClientShouldThrowException()
         {
             ArgumentNullException exception = Assert.Throws<ArgumentNullException>(
-                () => new SqlCigarRepository(null, new JsonSerializer()));
+                () => new SqlCigarRepository(null, new JsonEntitySerializer()));
 
             Assert.Equal("client", exception.ParamName);
         }
