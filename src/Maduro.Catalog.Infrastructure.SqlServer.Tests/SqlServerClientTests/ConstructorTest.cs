@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
-
+using Microsoft.Extensions.Options;
 using Xunit;
 
 namespace Maduro.Catalog.Infrastructure.SqlServer.Tests.SqlServerClientTests
@@ -19,7 +19,7 @@ namespace Maduro.Catalog.Infrastructure.SqlServer.Tests.SqlServerClientTests
         public void NullSqlServerSettingsShouldThrowException()
         {
             ArgumentNullException exception = Assert.Throws<ArgumentNullException>(
-                () => new SqlServerClient(null));
+                () => new SqlServerClient((IOptions<SqlServerSettings>) null));
             Assert.Equal("sqlServerSettings", exception.ParamName);
         }
     }

@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Maduro.Catalog.Api.Middleware
@@ -24,11 +25,7 @@ namespace Maduro.Catalog.Api.Middleware
             {
                 const string version = "v1";
                 
-                options.SwaggerDoc(version, new Info()
-                {
-                    Title = _apiName,
-                    Version = version
-                });
+                options.SwaggerDoc(version, new OpenApiInfo());
             });
         }
         

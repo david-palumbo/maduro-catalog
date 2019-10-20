@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 
 namespace Maduro.Catalog.Infrastructure.SqlServer
 {
@@ -23,6 +24,17 @@ namespace Maduro.Catalog.Infrastructure.SqlServer
         {
             _sqlServerSettings = sqlServerSettings 
                 ?? throw new ArgumentNullException(nameof(sqlServerSettings));
+        }
+
+        /// <summary>
+        /// Creates a new instance of the <see cref="SqlServerClient"/> class.
+        /// </summary>
+        /// <param name="sqlServerOptions">
+        /// Required settings for connecting and work with SQL Server.
+        /// </param>
+        public SqlServerClient(IOptions<SqlServerSettings> sqlServerOptions)
+            : this(sqlServerOptions?.Value)
+        {
         }
 
         /// <inheritdoc />

@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 using Maduro.Catalog.Api.Middleware;
 using Maduro.Catalog.Api.Middleware.Authentication;
 using Maduro.Catalog.Application.Cigars.Commands;
-using Microsoft.Extensions.Hosting;
+using Maduro.Catalog.Infrastructure.SqlServer;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 
@@ -50,15 +51,15 @@ namespace Maduro.Catalog.Api
                 = new AzureActiveDirectoryAuthenticationSettings();
 
             Configuration.Bind("Authentication:AzureActiveDirectory", authenticationSettings);
-
-            services.AddAzureActiveDirectoryAuthentication(authenticationSettings);
+            services
+                .AddAzureActiveDirectoryAuthentication(authenticationSettings);
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-
             services
                 .AddMediatR(typeof(AddCigarCommand).Assembly);
-            
+            services
+                .AddSqlRepositories();
             services
                 .AddOpenApi();
         }
@@ -84,6 +85,7 @@ namespace Maduro.Catalog.Api
             }
 
             app.UseRouting();
+            app.UseAuthorization();
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseEndpoints(endpoints => {
