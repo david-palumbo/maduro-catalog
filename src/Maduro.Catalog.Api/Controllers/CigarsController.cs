@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using Maduro.Catalog.Application.Cigars.Commands;
@@ -14,7 +13,6 @@ namespace Maduro.Catalog.Api.Controllers
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class CigarsController : ControllerBase
     {
         /// <summary>
@@ -37,7 +35,7 @@ namespace Maduro.Catalog.Api.Controllers
         /// </param>
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<string> Get(Guid id)
         {
             return string.Empty;
         }
@@ -53,7 +51,7 @@ namespace Maduro.Catalog.Api.Controllers
         {
             Guid commandResult = await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(Get), commandResult);
+            return CreatedAtAction(nameof(Get), new { id = commandResult }, command);
         }
         
         private readonly IMediator _mediator;

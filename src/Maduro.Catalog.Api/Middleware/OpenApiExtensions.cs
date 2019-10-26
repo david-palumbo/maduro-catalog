@@ -26,6 +26,8 @@ namespace Maduro.Catalog.Api.Middleware
                 const string version = "v1";
                 
                 options.SwaggerDoc(version, new OpenApiInfo());
+
+                
             });
         }
         

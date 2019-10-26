@@ -59,7 +59,7 @@ namespace Maduro.Catalog.Api
             services
                 .AddMediatR(typeof(AddCigarCommand).Assembly);
             services
-                .AddSqlRepositories();
+                .AddSqlRepositories(Configuration);
             services
                 .AddOpenApi();
         }

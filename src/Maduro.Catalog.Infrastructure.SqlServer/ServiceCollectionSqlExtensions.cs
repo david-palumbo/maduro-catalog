@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using Maduro.Catalog.Domain.Cigars;
@@ -19,9 +20,12 @@ namespace Maduro.Catalog.Infrastructure.SqlServer
         /// <param name="services">
         /// Required service collection to register the providers to.
         /// </param>
-        public static void AddSqlRepositories(this IServiceCollection services)
+        /// <param name="configuration"></param>
+        public static void AddSqlRepositories(
+            this IServiceCollection services, 
+            IConfiguration configuration)
         {
-            services.AddOptions<SqlServerSettings>();
+            services.Configure<SqlServerSettings>(configuration.GetSection("SqlServer"));
             services.AddSingleton<IEntitySerializer, JsonEntitySerializer>();
             services.AddSingleton<IDatabaseClient, SqlServerClient>();
             services.AddSingleton<ICigarRepository, SqlCigarRepository>();
