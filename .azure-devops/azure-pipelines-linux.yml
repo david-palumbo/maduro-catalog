@@ -15,8 +15,12 @@ variables:
 
 steps:
 
+- script: |
+    dotnet tool install -g dotnet-reportgenerator-globaltool
+  displayName: 'Install Tools'
+
 - task: UseDotNet@2
-  displayName: 'Use .NET Core sdk'
+  displayName: 'Use .NET Core SDK'
   enabled: false
   inputs:
     packageType: sdk
@@ -46,7 +50,6 @@ steps:
   displayName: '.NET Core Tests'
 
 - script: |
-    dotnet tool install -g dotnet-reportgenerator-globaltool
     reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(CoverageOutput) -reporttypes:'HtmlInline_AzurePipelines;Cobertura' -assemblyFilters:-xunit*.*
   displayName: 'Generate Code Coverage Report'
 
