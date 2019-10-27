@@ -51,7 +51,7 @@ namespace Maduro.Catalog.Api.Controllers
         {
             Guid commandResult = await _mediator.Send(command);
 
-            return CreatedAtAction(nameof(Get), new { id = commandResult }, command);
+            return CreatedAtAction(nameof(Get), new { id = commandResult }, commandResult);
         }
         
         private readonly IMediator _mediator;
