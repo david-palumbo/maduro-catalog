@@ -1,6 +1,6 @@
 # Getting Started - Linux
 
-## Install .NET Core 2.2
+## Install .NET Core 3.0
 
 [Reference](https://dotnet.microsoft.com/download)
 
@@ -16,20 +16,29 @@ Ubuntu 18.04 x64
     sudo add-apt-repository universe
     sudo apt-get install apt-transport-https
     sudo apt-get update
-    sudo apt-get install dotnet-sdk-2.2
+    sudo apt-get install dotnet-sdk-3.0
     ```
 
 ## Build
 
 Navigate to the **/src** directory and run:
 
-> dotnet build
+> dotnet build -c "Debug(Linux)"
 
 ## Run Tests
 
 Navigate to the **/src** directory and run:
 
-> dotnet test
+> dotnet test -c "Debug(Linux)"
+
+### Running Tests with Code Coverage
+
+Install the Report Generator global tool. This only needs to be done once.
+
+> dotnet tool install -g dotnet-reportgenerator-globaltool
+
+Navigate to the **/tasks** directory and run the **generate-test-report.sh** shell
+script.
 
 ## Install Docker (Optional)
 
@@ -44,7 +53,7 @@ Ubuntu 18.04 x64
    ```bash
    sudo apt-get update
    ```
-1. Install packages to allow **apt** to use a repository over HTTPS:
+2. Install packages to allow **apt** to use a repository over HTTPS:
    ```bash
    sudo apt-get install \
     apt-transport-https \
@@ -53,11 +62,11 @@ Ubuntu 18.04 x64
     gnupg-agent \
     software-properties-common
    ```
-1. Add Docker’s official GPG key:
+3. Add Docker’s official GPG key:
    ```bash
    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
    ```
-1. Install the latest version of Docker CE and containerd, or go to the next step 
+4. Install the latest version of Docker CE and containerd, or go to the next step 
    to install a specific version:
    ```bash
    sudo apt-get install docker-ce docker-ce-cli containerd.io
