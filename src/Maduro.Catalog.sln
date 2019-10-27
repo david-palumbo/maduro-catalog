@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maduro.Catalog.Infrastructu
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Maduro.Catalog.Database.SqlServer", "Maduro.Catalog.Database.SqlServer\Maduro.Catalog.Database.SqlServer.sqlproj", "{F17FA344-8145-47C4-85C4-D2EC0EC876EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maduro.Catalog.Infrastructure.SqlServer.Tests", "Maduro.Catalog.Infrastructure.SqlServer.Tests\Maduro.Catalog.Infrastructure.SqlServer.Tests.csproj", "{EB7A3AE3-5935-44AE-BCB5-A438F2DC72F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maduro.Catalog.Infrastructure.SqlServer.Tests", "Maduro.Catalog.Infrastructure.SqlServer.Tests\Maduro.Catalog.Infrastructure.SqlServer.Tests.csproj", "{EB7A3AE3-5935-44AE-BCB5-A438F2DC72F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,7 +78,6 @@ Global
 		{F17FA344-8145-47C4-85C4-D2EC0EC876EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F17FA344-8145-47C4-85C4-D2EC0EC876EB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{EB7A3AE3-5935-44AE-BCB5-A438F2DC72F9}.Debug(Linux)|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB7A3AE3-5935-44AE-BCB5-A438F2DC72F9}.Debug(Linux)|Any CPU.Build.0 = Debug|Any CPU
 		{EB7A3AE3-5935-44AE-BCB5-A438F2DC72F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB7A3AE3-5935-44AE-BCB5-A438F2DC72F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB7A3AE3-5935-44AE-BCB5-A438F2DC72F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
